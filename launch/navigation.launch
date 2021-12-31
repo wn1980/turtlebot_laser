@@ -1,7 +1,4 @@
 <launch>
-  <!-- 3D sensor -->
-  <arg name="3d_sensor" default="$(env TURTLEBOT_3D_SENSOR)"/>  <!-- r200, kinect, asus_xtion_pro -->
-
   <!-- Use laser scan -->
   <include file="$(find turtlebot_laser)/launch/laser.launch"/>
 
@@ -62,6 +59,6 @@
   </node>
 
   <!-- Move base -->
-  <include file="$(find turtlebot_navigation)/launch/includes/move_base.launch.xml"/>
+  <include file="$(find turtlebot_laser)/launch/includes/move_base.launch.xml"/>
 
 </launch>
