@@ -8,7 +8,7 @@
 
   <!-- AMCL -->
   <arg name="use_map_topic"   default="false"/>
-  <arg name="scan_topic"      default="scan"/> 
+  <arg name="scan_topic"      default="scan_filtered"/> <!-- use scan_filtered -->
   <arg name="initial_pose_x"  default="0.0"/>
   <arg name="initial_pose_y"  default="0.0"/>
   <arg name="initial_pose_a"  default="0.0"/>

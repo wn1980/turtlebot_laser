@@ -3,7 +3,7 @@
   <include file="$(find turtlebot_laser)/launch/laser.launch"/>
     
   <!-- Gmapping -->
-  <arg name="scan_topic"  default="scan" />
+  <arg name="scan_topic"  default="scan_filtered"/> <!-- use scan_filtered -->
   <arg name="base_frame"  default="base_footprint"/>
   <arg name="odom_frame"  default="odom"/>
 

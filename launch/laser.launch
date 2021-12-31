@@ -1,4 +1,5 @@
 <launch>
+  <!-- YD Lidar node -->
   <node name="ydlidar_node"  pkg="ydlidar_ros"  type="ydlidar_node" output="screen" respawn="false" >
     <param name="port"         type="string" value="/dev/ydlidar"/>  
     <param name="baudrate"         type="int" value="128000"/>  
@@ -8,13 +9,17 @@
     <param name="reversion"    type="bool"   value="false"/>
     <param name="angle_min"    type="double" value="-180" />
     <param name="angle_max"    type="double" value="180" />
-    <param name="range_min"    type="double" value="0.2" />
+    <param name="range_min"    type="double" value="0.1" />
     <param name="range_max"    type="double" value="12.0" />
     <param name="ignore_array" type="string" value="" />
     <param name="frequency"    type="double" value="8"/>
     <param name="samp_rate"    type="int"    value="5"/>
   </node>
 
+  <!-- Filter laser scan -->
+  <node name="laser_filter" pkg="turtlebot_navigation" type="laser_footprint_filter" output="screen"/>
+
+  <!-- Lidar to base_link transformatio  -->
   <node pkg="tf" type="static_transform_publisher" name="base_link_to_laser4"
     args="0.02 0.0 0.13 0.0 0.0 0.0 /base_link /laser_frame 40" />
 
