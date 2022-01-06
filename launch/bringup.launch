@@ -16,13 +16,6 @@
     <arg name="3d_sensor" value="$(arg 3d_sensor)" />
   </include>
 
-<!--
-  <include file="$(find turtlebot_bringup)/launch/includes/mobile_base.launch.xml">
-    <arg name="base" value="$(arg base)" />
-    <arg name="serialport" value="$(arg serialport)" />
-  </include>
--->
-
   <include unless="$(eval arg('battery') == 'None')" file="$(find turtlebot_bringup)/launch/includes/netbook.launch.xml">
     <arg name="battery" value="$(arg battery)" />
   </include>
@@ -37,6 +30,13 @@
     <arg name="disparity_registered_processing" value="false"/>
     <arg name="scan_processing"                 value="false"/>
   </include>
+
+<!--
+  <include file="$(find turtlebot_bringup)/launch/includes/mobile_base.launch.xml">
+    <arg name="base" value="$(arg base)" />
+    <arg name="serialport" value="$(arg serialport)" />
+  </include>
+-->
 
   <!-- mobile base nodelet manager -->
   <node pkg="nodelet" type="nodelet" name="mobile_base_nodelet_manager" args="manager"/>
@@ -75,9 +75,9 @@
     <remap from="kobuki_safety_controller/events/wheel_drop" to="mobile_base/events/wheel_drop"/>
   </node>
 
-  <!-- Default velocity smoother for Web control -->
+  <!-- Default velocity smoother -->
   <node pkg="nodelet" type="nodelet" name="default_velocity_smoother" args="load yocs_velocity_smoother/VelocitySmootherNodelet mobile_base_nodelet_manager">
-    <rosparam file="$(find turtlebot_bringup)/param/defaults/smoother.yaml" command="load"/>
+    <rosparam file="$(find turtlebot_laser)/param/smoother.yaml" command="load"/>
     <remap from="default_velocity_smoother/smooth_cmd_vel" to="cmd_vel_mux/input/switch"/>
 
     <!-- Robot velocity feedbacks; use the one configured as base default -->
