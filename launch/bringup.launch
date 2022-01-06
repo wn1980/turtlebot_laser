@@ -39,17 +39,24 @@
   <!-- Safety (reactive) controller -->
   <include file="$(find turtlebot_bringup)/launch/includes/kobuki/safety_controller.launch.xml"/>
 
-  <!-- Velocity smoother for Web control -->
-  <node pkg="nodelet" type="nodelet" name="webapp_velocity_smoother" args="load yocs_velocity_smoother/VelocitySmootherNodelet mobile_base_nodelet_manager">
+  <!-- Default velocity smoother for Web control -->
+  <node pkg="nodelet" type="nodelet" name="default_velocity_smoother" args="load yocs_velocity_smoother/VelocitySmootherNodelet mobile_base_nodelet_manager">
     <rosparam file="$(find turtlebot_bringup)/param/defaults/smoother.yaml" command="load"/>
-    <remap from="webapp_velocity_smoother/smooth_cmd_vel" to="cmd_vel_mux/input/teleop"/>
+    <remap from="default_velocity_smoother/smooth_cmd_vel" to="cmd_vel_mux/input/teleop"/>
 
     <!-- Robot velocity feedbacks; use the one configured as base default -->
-    <remap from="webapp_velocity_smoother/odometry" to="odom"/>
-    <remap from="webapp_velocity_smoother/robot_cmd_vel" to="mobile_base/commands/velocity"/>
+    <remap from="default_velocity_smoother/odometry" to="odom"/>
+    <remap from="default_velocity_smoother/robot_cmd_vel" to="mobile_base/commands/velocity"/>
   </node>
 
   <!-- Auto docking -->
-  <include file="$(find kobuki_auto_docking)/launch/minimal.launch"/>
+  <node pkg="nodelet" type="nodelet" name="dock_drive" args="load kobuki_auto_docking/AutoDockingNodelet mobile_base_nodelet_manager">
+    <rosparam file="$(find kobuki_auto_docking)/param/auto_docking.yaml" command="load"/>
+    <remap from="dock_drive/odom" to="odom"/>
+    <remap from="dock_drive/core" to="mobile_base/sensors/core"/>
+    <remap from="dock_drive/dock_ir" to="mobile_base/sensors/dock_ir"/>
+    <remap from="dock_drive/motor_power" to="mobile_base/commands/motor_power"/>
+    <remap from="dock_drive/velocity" to="default_velocity_smoother/raw_cmd_vel"/>
+  </node>
 
 </launch>
