@@ -101,4 +101,7 @@
 
   </node>
 
+  <!-- Docking Button 2 -->
+  <node pkg="turtlebot_laser" type="docking_button.py" name="docking_button" output="screen"/>
+
 </launch>
