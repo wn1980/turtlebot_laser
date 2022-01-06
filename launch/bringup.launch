@@ -36,9 +36,8 @@
     <arg name="scan_processing"                 value="false"/>
   </include>
 
-  <!-- Velocity smoother and Safety (reactive) controller -->
-  <include file="$(find turtlebot_navigation)/launch/includes/velocity_smoother.launch.xml"/>
-  <include file="$(find turtlebot_navigation)/launch/includes/safety_controller.launch.xml"/>
+  <!-- Safety (reactive) controller -->
+  <include file="$(find turtlebot_bringup)/launch/includes/kobuki/safety_controller.launch.xml"/>
 
   <!-- Auto docking -->
   <include file="$(find kobuki_auto_docking)/launch/minimal.launch"/>

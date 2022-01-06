@@ -3,8 +3,9 @@
 -->
 <launch>
 
-  <!-- Already included in bringup
   <include file="$(find turtlebot_navigation)/launch/includes/velocity_smoother.launch.xml"/>
+
+  <!-- Already included in bringup
   <include file="$(find turtlebot_navigation)/launch/includes/safety_controller.launch.xml"/>
   -->
   
