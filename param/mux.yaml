@@ -25,7 +25,7 @@ subscribers:
   - name:        "Navigation"
     topic:       "input/navi"
     timeout:     1.0
-    priority:    5
+    priority:    0
   - name:        "Auto docking"
     topic:       "input/auto_docking"
     timeout:     0.2
