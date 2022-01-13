@@ -85,6 +85,12 @@
     <remap from="default_velocity_smoother/robot_cmd_vel" to="mobile_base/commands/velocity"/>
   </node>
 
+  <!-- path -->
+  <node pkg="hector_trajectory_server" type="hector_trajectory_server" name="trajectory" output="screen"> 
+    <param name="target_frame_name" value="odom"/>
+    <param name="source_frame_name" value="base_footprint"/>
+  </node>
+
   <!-- Auto docking -->
   <node pkg="nodelet" type="nodelet" name="dock_drive" args="load kobuki_auto_docking/AutoDockingNodelet mobile_base_nodelet_manager">
     <rosparam file="$(find kobuki_auto_docking)/param/auto_docking.yaml" command="load"/>
