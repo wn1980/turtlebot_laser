@@ -20,7 +20,7 @@
     <arg name="battery" value="$(arg battery)" />
   </include>
 
-  <!-- 3D sensor without laser scan -->
+<!-- 3D sensor without laser scan 
   <include file="$(find turtlebot_bringup)/launch/3dsensor.launch">
     <arg name="rgb_processing"                  value="true"/>
     <arg name="ir_processing"                   value="false"/>
@@ -30,6 +30,7 @@
     <arg name="disparity_registered_processing" value="false"/>
     <arg name="scan_processing"                 value="false"/>
   </include>
+-->
 
 <!--
   <include file="$(find turtlebot_bringup)/launch/includes/mobile_base.launch.xml">
