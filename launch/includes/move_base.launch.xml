@@ -14,7 +14,7 @@
   <arg name="global_frame_id" default="map"/>
   <arg name="odom_topic" default="odom"/>
   <arg name="laser_topic" default="scan_filtered"/> <!-- use scan_filtered -->
-  <arg name="custom_param_file" default="$(find turtlebot_laser)/param/dummy.yaml"/>
+  <arg name="custom_param_file" default="$(find turtlebot_laser)/param/move_base/dummy.yaml"/>
 
   <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
     <rosparam file="$(find turtlebot_laser)/param/move_base/costmap_common_params.yaml" command="load" ns="global_costmap" />
