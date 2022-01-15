@@ -567,7 +567,7 @@ Visualization Manager:
       Length: 0.30000001192092896
       Line Style: Billboards
       Line Width: 0.029999999329447746
-      Name: Path - robot
+      Name: Path - history
       Offset:
         X: 0
         Y: 0
@@ -666,7 +666,7 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Scale: 106.00920867919922
+      Scale: 81.64997863769531
       Target Frame: <Fixed Frame>
       X: -0.5818485617637634
       Y: 3.3646371364593506
@@ -687,5 +687,5 @@ Window Geometry:
   Views:
     collapsed: true
   Width: 1840
-  X: 27
-  Y: 12
+  X: 0
+  Y: 0

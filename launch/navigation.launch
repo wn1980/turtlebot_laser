@@ -3,7 +3,7 @@
   <include file="$(find turtlebot_laser)/launch/laser.launch"/>
 
   <!-- Map server -->
-  <arg name="map_file" default="/home/developer/catkin_ws/src/turtlebot_laser/maps/map.yaml"/>
+  <arg name="map_file" default="/home/developer/catkin_ws/src/turtlebot_laser/maps/cropped.yaml"/>
   <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
 
   <!-- AMCL -->

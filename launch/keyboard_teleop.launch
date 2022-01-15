@@ -11,7 +11,7 @@
   
   <!-- keyboard teleop node -->
   <node pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" name="keyboard_teleop" output="screen" launch-prefix="xterm -e">
-      <param name="speed" type="double" value="0.5"/>
+      <param name="speed" type="double" value="0.25"/>
       <param name="turn" type="double" value="1.5" />
 
       <!--
