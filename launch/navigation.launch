@@ -1,4 +1,6 @@
 <launch>
+  <arg name="open_rviz" default="true"/>
+
   <!-- Use laser scan -->
   <include file="$(find turtlebot_laser)/launch/laser.launch"/>
 
@@ -60,5 +62,10 @@
 
   <!-- Move base -->
   <include file="$(find turtlebot_laser)/launch/includes/move_base.launch.xml"/>
+
+  <!-- rviz -->
+  <group if="$(arg open_rviz)"> 
+    <node pkg="rviz" type="rviz" name="rviz" required="true" args="-d $(find turtlebot_laser)/rviz/navigation.rviz"/>
+  </group>
 
 </launch>
